@@ -4,6 +4,8 @@ from django.conf import settings
 
 
 class Usuario(AbstractUser):
+    imagen = models.ImageField(upload_to='perfiles/', null=True, blank=True)
+
     def __str__(self):
         return self.username
 
@@ -33,7 +35,7 @@ class Producto(models.Model):
     stock = models.PositiveIntegerField(default=0)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     fecha_creacion = models.DateTimeField(auto_now_add=True)
-    imagen = models.ImageField(upload_to='productos/', blank=True, null=True)  # <-- Aquí la imagen
+    imagen = models.ImageField(upload_to='productos/', blank=True, null=True)  
 
     def __str__(self):
         return self.nombre

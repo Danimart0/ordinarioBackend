@@ -4,6 +4,7 @@ from datetime import timedelta
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-fd=ir330z&tq+41dm38j+rc6c6clg85xa)#m0+ij2f6yjxtz9_'
+AUTH_USER_MODEL = 'inventario.Usuario'
 
 DEBUG = True
 BASE_DIR = Path(__file__).resolve().parent.parent
