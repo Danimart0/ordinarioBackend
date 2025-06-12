@@ -1,0 +1,20 @@
+from rest_framework import viewsets
+from .models import Producto, Categoria, Proveedor, HistorialMovimiento
+from .serializers import ProductoSerializer, CategoriaSerializer, ProveedorSerializer, HistorialSerializer
+
+class ProductoViewSet(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
+
+class CategoriaViewSet(viewsets.ModelViewSet):
+    queryset = Categoria.objects.all()
+    serializer_class = CategoriaSerializer
+
+class ProveedorViewSet(viewsets.ModelViewSet):
+    queryset = Proveedor.objects.all()
+    serializer_class = ProveedorSerializer
+
+class HistorialViewSet(viewsets.ReadOnlyModelViewSet):  
+    queryset = HistorialMovimiento.objects.all()
+    serializer_class = HistorialSerializer
+
