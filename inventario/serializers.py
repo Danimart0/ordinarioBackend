@@ -4,9 +4,18 @@ from django.contrib.auth import get_user_model
 
 
 class ProductoSerializer(serializers.ModelSerializer):
+    imagen_url = serializers.SerializerMethodField(read_only=True)
+    imagen = serializers.ImageField(required=False)
+
     class Meta:
         model = Producto
-        fields = '__all__'
+        fields = '__all__'  
+
+    def get_imagen_url(self, obj):
+        request = self.context.get('request')
+        if obj.imagen and request:
+            return request.build_absolute_uri(obj.imagen.url)
+        return None
 
 class CategoriaSerializer(serializers.ModelSerializer):
     class Meta:

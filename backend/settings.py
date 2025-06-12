@@ -6,8 +6,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-fd=ir330z&tq+41dm38j+rc6c6clg85xa)#m0+ij2f6yjxtz9_'
 
 DEBUG = True
-
+BASE_DIR = Path(__file__).resolve().parent.parent
 ALLOWED_HOSTS = ['*']  # Ajusta en producción
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Aplicaciones instaladas
 INSTALLED_APPS = [

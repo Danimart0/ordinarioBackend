@@ -8,6 +8,10 @@ from rest_framework.permissions import IsAuthenticated
 class ProductoViewSet(viewsets.ModelViewSet):
     queryset = Producto.objects.all()
     serializer_class = ProductoSerializer
+   
+
+    def get_serializer_context(self):
+        return {'request': self.request}
 
 class CategoriaViewSet(viewsets.ModelViewSet):
     queryset = Categoria.objects.all()
