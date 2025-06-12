@@ -1,6 +1,6 @@
 from rest_framework import viewsets
-from .models import Producto, Categoria, Proveedor, HistorialMovimiento
-from .serializers import ProductoSerializer, CategoriaSerializer, ProveedorSerializer, HistorialSerializer
+from .models import Producto, Categoria, Proveedor, HistorialMovimiento, Usuario
+from .serializers import ProductoSerializer, CategoriaSerializer, ProveedorSerializer, HistorialSerializer, UsuarioSerializer
 from django.contrib.auth import get_user_model
 from .serializers import UsuarioSerializer
 from rest_framework.permissions import IsAuthenticated
@@ -25,6 +25,7 @@ class HistorialViewSet(viewsets.ReadOnlyModelViewSet):
 Usuario = get_user_model()
 
 class UsuarioViewSet(viewsets.ReadOnlyModelViewSet):
+    queryset = Usuario.objects.all()
     serializer_class = UsuarioSerializer
     permission_classes = [IsAuthenticated]
 
